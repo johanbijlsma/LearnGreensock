@@ -1,0 +1,13 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 120px;
+  background: #333333;
+}
+/*# sourceMappingURL=styles.css.map */
