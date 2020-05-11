@@ -4,7 +4,7 @@
 <div class="container">
 <header>
 			<h1>{title}</h1>
-            <img src="build/logo-man.svg" class="logo" alt="Logo GSAP - superhero" height="100%">
+            <img src="/logo-man.svg" class="logo" alt="Logo GSAP - superhero" height="100%">
 		</header>
 		<main>
 			<h2>What's Greensock and what is GSAP?</h2>
@@ -81,7 +81,7 @@
 
     @font-face {
         font-family: Jost;
-        src: url("/build/Jost-VariableFont_ital,wght.ttf");
+        src: url("/Jost-VariableFont_ital,wght.ttf");
     }
 
     header, footer {
