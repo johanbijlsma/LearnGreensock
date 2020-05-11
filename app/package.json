@@ -1,21 +1,37 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "11.0.2",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "rollup": "^1.20.0",
-    "rollup-plugin-livereload": "^1.0.0",
-    "rollup-plugin-svelte": "^5.0.3",
-    "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0"
-  },
-  "dependencies": {
-    "sirv-cli": "^0.4.4"
-  }
+	"name": "learngreensock",
+	"description": "personal project to learn the ins and outs of GSAP",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/johanbijlsma/LearnGreensock.git"
+	},
+	"keywords": [
+		"GSAP",
+		"Animation"
+	],
+	"author": "@johanbijlsma, Johan Bijlsma",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/johanbijlsma/LearnGreensock/issues"
+	},
+	"homepage": "https://github.com/johanbijlsma/LearnGreensock#readme",
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w",
+		"start": "sirv public"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "11.0.2",
+		"@rollup/plugin-node-resolve": "^7.0.0",
+		"rollup": "^1.20.0",
+		"rollup-plugin-livereload": "^1.0.0",
+		"rollup-plugin-svelte": "^5.0.3",
+		"rollup-plugin-terser": "^5.1.2",
+		"svelte": "^3.0.0"
+	},
+	"dependencies": {
+		"sirv-cli": "^0.4.4",
+		"gsap": "3.2.6"
+	}
 }
