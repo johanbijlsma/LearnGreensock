@@ -9,7 +9,7 @@
             <img src="/logo-man.svg" class="logo" alt="Logo GSAP - superhero" height="100%">
 		</header>
 		<main>
-			<h2>What's Greensock and what is GSAP?</h2>
+			<h2 id="Whatis">What's Greensock and what is GSAP?</h2>
 			<p>
 				Greensock is a JavaScript platform for animating DOM elements, and gives
 				the developer a lot more control over the animations.
@@ -19,7 +19,7 @@
 <section>
 <h2>A first simple animation</h2>
 <p> Here come a first example:</p>
-<div class="demo__container">
+<div class="demo__container" id="simpleDemo">
 <h2 class="demo__title">A simple demo: <code>gsap.to</code></h2>
 {#if !example1Started}
 <button class="button start" on:click={startAnimation} >
@@ -27,7 +27,7 @@
 </button>
 {:else}
 <button class="button reset" on:click={resetAnimation} >
-	reset &ldca;
+	Reset &ldca;
 </button>
 {/if}
 <div class="example"></div>
@@ -36,8 +36,8 @@
 		</main>
         <aside>
         <ul>
-            <li class="link">What's Greensock and what is GSAP?</li>
-            <li class="link">Example 1</li>
+            <li class="link"><a href="#Whatis"> What's Greensock and what is GSAP? </a></li>
+            <li class="link"><a href="#simpleDemo">Simple Demo</a></li>
         </ul>
         </aside>
 <footer><p class="footer__content">blabla</p></footer>
@@ -154,7 +154,26 @@ button.button{
     border-radius: 10px;
     border: 1px solid darkblue;
     padding: 8px 32px;
-    box-shadow: 0 0 30x rgba(0,0,30,0.3);
+    box-shadow: inset 0 0 0 transparent;
+}
+.button.start:hover{
+    box-shadow: inset 0 -6px 1px #8AC640;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    color: #8AC640;
+}
+
+.button.reset{
+    box-shadow: inset 0 -40px 1px rgb(204, 63, 8);
+    transition: all 200ms ease-in-out;
+    color: #fff;
+    }
+
+    .button.reset:hover{
+    box-shadow: inset 0 -6px 1px #8AC640;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    color: #8AC640;
 }
 </style>
 
