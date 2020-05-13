@@ -1,6 +1,8 @@
-<script>
+<!-- <script>
 	export let title;
-</script>
+    gsap.to(".example", { duration: 1, x: 100 });
+
+</script> -->
 <div class="container">
 <header>
 			<h1>{title}</h1>
@@ -16,9 +18,29 @@
 			</p>
 <section>
 <h2>A first simple animation</h2>
-<p> Here come a first example:</p></section>
+<p> Here come a first example:</p>
+<div class="demo__container">
+<h2 class="demo__title">A simple demo: <code>gsap.to</code></h2>
+{#if !example1Started}
+<button class="button start" on:click={startAnimation} >
+	Start &RightAngleBracket;
+</button>
+{:else}
+<button class="button reset" on:click={resetAnimation} >
+	reset &ldca;
+</button>
+{/if}
+<div class="example"></div>
+</div>
+</section>
 		</main>
-<footer>blabla</footer>
+        <aside>
+        <ul>
+            <li class="link">What's Greensock and what is GSAP?</li>
+            <li class="link">Example 1</li>
+        </ul>
+        </aside>
+<footer><p class="footer__content">blabla</p></footer>
 
 
 </div>
@@ -27,8 +49,8 @@
 
 .container{
     display: grid;
-    grid-template-columns: 40px 250px auto 250px 40px;
-    grid-template-rows: 25%  auto 100px;
+    grid-template-columns: 40px 40px auto 250px 40px;
+    grid-template-rows: auto auto 100px;
 }
 	main {
 		padding: 1em;
@@ -61,11 +83,22 @@
         grid-row-start: 1;
         grid-row-end: 1;
     }
+    aside{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: #8AC640;
+        columns: #333333;
+    }
     footer{
-        grid-column-start: 3;
-        grid-column-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 6;
         grid-row-start: 3;
         grid-row-end: 3;
+    }
+    .footer__content{
+          grid-column-start: 3;
     }
 
 	@media (min-width: 640px) {
@@ -90,5 +123,53 @@
         height: 120px;
         background: #333333;
     }
+    .demo__container{
+        margin: 10px auto;
+        width: 80%;
+        border: dashed 2px rgba(0,0,30,0.3);
+        padding: 20px;
+        background-color: #33333375;
+        border-radius: 30px;
+    }
 
+    .demo__title{
+            color: #8AC640;
+
+    }
+
+    .example{
+        width: 35px;
+        height: 35px;
+        background-color: red;
+        border-radius: 10px;
+        border: 2px solid white;
+    }
+
+code{
+    font-family: monospace;
+    color: #8AC640;
+}
+
+button.button{
+    border-radius: 10px;
+    border: 1px solid darkblue;
+    padding: 8px 32px;
+    box-shadow: 0 0 30x rgba(0,0,30,0.3);
+}
 </style>
+
+<script>
+	export let title;
+    export let example1Started = false;
+	function startAnimation(event) {
+    gsap.to('.example', { duration: 1, x: 100 });
+    example1Started = true;
+	}
+	function resetAnimation(event) {
+    gsap.to('.example', { duration: 1, x: 0 });
+    example1Started = false;
+	}
+
+    // console.log(container);
+
+</script>
