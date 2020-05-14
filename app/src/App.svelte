@@ -40,7 +40,8 @@
             <li class="link"><a href="#simpleDemo">Simple Demo</a></li>
         </ul>
         </aside>
-<footer><p class="footer__content">blabla</p></footer>
+<footer><p class="footer__content">2020 - Personal project by @johanbijlsma</p>
+</footer>
 
 
 </div>
@@ -98,7 +99,8 @@
         grid-row-end: 3;
     }
     .footer__content{
-          grid-column-start: 3;
+          grid-column-start: 2;
+          text-align: center;
     }
 
 	@media (min-width: 640px) {
