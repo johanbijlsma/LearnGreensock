@@ -1,4 +1,5 @@
 <script>
+import { slide } from 'svelte/transition';
   export let example2Started = false;
   export let showCode = false;
   function startAnimation(event) {
@@ -26,8 +27,11 @@
 
   export let codeSnippetJS = `
     gsap.to('.red', { duration: 1, x: 100 });
-    gsap.to('.yellow', { duration: 1, delay: 1, x: 300, rotate: 720 });
-    gsap.to('.blue', { duration: 1, delay: 2, scale: 2, backgroundColor: 'turquoise' });`;
+    gsap.to('.yellow', { duration: 1, delay: 1,
+                        x: 300, rotate: 720 });
+    gsap.to('.blue', { duration: 1, delay: 2,
+                        scale: 2,
+                        backgroundColor: 'turquoise' });`;
 </script>
 
 <section>
@@ -61,7 +65,7 @@
       <div class="box blue" />
     </div>
     {#if showCode}
-      <div class="codeblock">
+      <div class="codeblock" transition:slide="{{ y: 200, duration: 2000 }}">
         HTML
         <pre class="language-html">
           <!-- <code class="language-javascript"> -->

@@ -24,15 +24,7 @@
       Greensock is a JavaScript platform for animating DOM elements, and gives
       the developer a lot more control over the animations.
       <acronym title="Greensock Animation Platform">GSAP</acronym>
-      is the name of the platform, which stands for
-      <strong>G</strong>
-      reen
-      <strong>S</strong>
-      ock
-      <strong>A</strong>
-      nimation
-      <strong>P</strong>
-      latform
+      is the name of the platform, which stands for <strong>G</strong>reen <strong>S</strong>ock <strong>A</strong>nimation <strong>P</strong>latform
     </p>
 
     <Demo1 />
@@ -59,8 +51,8 @@
 <style>
   .container {
     display: grid;
-    grid-template-columns: 40px 40px auto 250px 40px;
-    grid-template-rows: auto auto 100px;
+    grid-template-columns: 40px 40px 1fr 250px 40px;
+    grid-template-rows: auto 1fr 100px;
   }
   main {
     padding: 1em;

@@ -1,6 +1,7 @@
 <script>
+import { slide } from 'svelte/transition';
   export let example3Started = false;
-  export let showCode = false;
+  export let showCode3 = false;
   function startAnimation(event) {
     gsap.to(".circle", {
       duration: 0.45,
@@ -35,39 +36,20 @@
 
   export let codeSnippetHTML = `
    <div class="circles">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    </div>
+        ...
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        ...
+    </div>
     `;
 
-  export let codeSnippetJS = `  gsap.to(".circle", {
+  export let codeSnippetJS = ` gsap.to(".circle", {
       duration: 0.45,
       scale: 0.75,
-      backgroundColor: gsap.utils.random(["red", "blue", "green"]),
+      backgroundColor: "tomato",
       yoyo: true,
-      repeat: -1,
+      repeat: 3,
       ease: "elastic.in",
       stagger: {
         amount: 1.5,
@@ -92,8 +74,8 @@
       <code>gsap.to</code>
     </h2>
     <div class="show-code-container">
-      <label for="show-code-check">Show Code</label>
-      <input id="show-code-check" type="checkbox" bind:checked={showCode} />
+      <label for="show-code-check3">Show Code</label>
+      <input id="show-code-check3" type="checkbox" bind:checked={showCode3} />
     </div>
     <div class="demoblock">
       {#if !example3Started}
@@ -132,8 +114,8 @@
         <div class="circle" />
       </div>
     </div>
-    {#if showCode}
-      <div class="codeblock">
+    {#if showCode3}
+      <div class="codeblock" transition:slide="{{ y: 200, duration: 2000 }}">
         HTML
         <pre class="language-html">
           <!-- <code class="language-javascript"> -->
@@ -177,7 +159,7 @@
   }
   .circles {
     display: flex;
-    padding: 30px 200px;
+    padding: 30px 23%;
     flex-wrap: wrap;
     justify-content: space-around;
 
