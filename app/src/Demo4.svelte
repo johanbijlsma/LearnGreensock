@@ -31,13 +31,13 @@ import { slide } from 'svelte/transition';
     <div class="box blue class3"></div>
     `;
 
-  export let codeSnippetJS = ` tl.paused(false)
+  export let codeSnippetJS = `
     tl.to(".class1", {rotation: -270})
-        .to(".class1", { scale: 300, duration: 1.5, ease: "back"})
-        .to(".class2", {rotation: -270})
-        .to(".class2", { scale: 300, duration: 1.5, ease: "back"})
-        .to(".class3", {rotation: -270})
-        .to(".class3", { scale: 300, duration: 1.5, ease: "back"});`;
+      .to(".class1", { scale: 300, duration: 1.5, ease: "back"})
+      .to(".class2", {rotation: -270})
+      .to(".class2", { scale: 300, duration: 1.5, ease: "back"})
+      .to(".class3", {rotation: -270})
+      .to(".class3", { scale: 300, duration: 1.5, ease: "back"});`;
 </script>
 
 <section>
