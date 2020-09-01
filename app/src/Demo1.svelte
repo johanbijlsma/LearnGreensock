@@ -54,11 +54,6 @@
     border: 2px solid white;
   }
 
-  code {
-    font-family: monospace;
-    color: #8ac640;
-  }
-
   button.button {
     border-radius: 10px;
     border: 1px solid darkblue;

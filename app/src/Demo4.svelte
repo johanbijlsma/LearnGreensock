@@ -2,42 +2,91 @@
 import { slide } from 'svelte/transition';
   export let example4Started = false;
   export let showCode4 = false;
-    var tl = gsap.timeline({ defaults: {duration: 0.5, ease: "elastic", opacity: 0.5}, onComplete: resetAnimation}  );
+
+  var random = gsap.utils.random(0, 100, true);
+
+  var tl = gsap.timeline({ defaults: {duration: 0.5, opacity: 1, ease: "elastic"}}  );
   function startAnimation(event) {
+
     tl.paused(false)
-    tl.to(".class1", {rotation: -270}) //child tweens will inherit the duration and from the parent timeline!
-        .to(".class1", { scale: 300, duration: 1.5, ease: "back"})
-        .to(".class2", {rotation: -270})
-        .to(".class2", { scale: 300, duration: 1.5, ease: "back"})
-        .to(".class3", {rotation: -270})
-        .to(".class3", { scale: 300, duration: 1.5, ease: "back"});
+        tl.to(".title", { scale: 1, opacity: 1, x: 10, duration: 1.5, ease: "elastic"})
+        .to(".star", {y: 0, ease: "power4.in"})
+        .to(".text", {y: 0, opacity: 0.3 ,duration: 1.5, ease: "power4.in"})
+        .to(".text", {opacity: 1, ease: "ease.in"})
+        .to(".star", {duration: 0.2, rotation: "-18", scale: "1.2", zIndex: 1,  ease: "power4.in"})
+        .to(".slide", {duration: 0.8, opacity: 1, backgroundColor: "#8686e05d", ease: "ease"})
+        .to(".spark1", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark2", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark3", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark4", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark5", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark6", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark7", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".spark8", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+        .to(".sparkles", {opacity: 1, scale: 1, repeat: -1, stagger: {
+            amount: 1.8,
+            grid: "auto",
+            from: "random",
+        },  ease: "back"})
+        .to(".slide", {background: "#8686e05d", ease: "ease"})
+        .to(".title", {zIndex: 1, scale: 1.25, ease: "ease.in"})
 
     example4Started = true;
   }
   function resetAnimation(event) {
-    // var tl = gsap.timeline({ defaults: {duration: 1, ease: "elastic", repeat: "=+"} } );
-    // tl.to(".class1", {rotation: -270}) //child tweens will inherit the duration and from the parent timeline!
-    // .to(".class2", {rotation: -360})
-    // .to(".class3", {rotation: -180});
     tl.seek(0.0) && tl.paused(true);
-    // tl.pause();
 
     example4Started = false;
   }
 
   export let codeSnippetHTML = `
-    <div class="box red class1"></div>
-    <div class="box yellow class2"></div>
-    <div class="box blue class3"></div>
+<div class="window">
+    <div class="star step-1">NEW</div>
+    <div class="title step-2">A Strong Title</div>
+    <div class="text step-3">Now available at a store or supermarket near you 👍</div>
+    <div class="slide"></div>
+        <div class="sparkles spark1"></div>
+        <div class="sparkles spark2"></div>
+        <div class="sparkles spark3"></div>
+        <div class="sparkles spark4"></div>
+        <div class="sparkles spark5"></div>
+        <div class="sparkles spark6"></div>
+        <div class="sparkles spark7"></div>
+        <div class="sparkles spark8"></div>
+    </div>
+</div>
     `;
 
   export let codeSnippetJS = `
-    tl.to(".class1", {rotation: -270})
-      .to(".class1", { scale: 300, duration: 1.5, ease: "back"})
-      .to(".class2", {rotation: -270})
-      .to(".class2", { scale: 300, duration: 1.5, ease: "back"})
-      .to(".class3", {rotation: -270})
-      .to(".class3", { scale: 300, duration: 1.5, ease: "back"});`;
+
+var random = gsap.utils.random(0, 100, true);
+
+var tl = gsap.timeline({ defaults: {duration: 0.5, opacity: 1, ease: "elastic"}}  );
+function startAnimation(event) {
+
+tl.paused(false)
+    tl.to(".title", { scale: 1, opacity: 1, x: 10, duration: 1.5, ease: "elastic"})
+    .to(".star", {y: 0, ease: "power4.in"})
+    .to(".text", {y: 0, opacity: 0.3 ,duration: 1.5, ease: "power4.in"})
+    .to(".text", {opacity: 1, ease: "ease.in"})
+    .to(".star", {duration: 0.2, rotation: "-18", scale: "1.2", zIndex: 1,  ease: "power4.in"})
+    .to(".slide", {duration: 0.8, opacity: 1, backgroundColor: "#8686e05d", ease: "ease"})
+    .to(".spark1", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark2", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark3", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark4", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark5", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark6", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark7", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark8", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".sparkles", {opacity: 1, scale: 1, repeat: -1, stagger: {
+        amount: 1.8,
+        grid: "auto",
+        from: "random",
+    },  ease: "back"})
+    .to(".slide", {background: "#8686e05d", ease: "ease"})
+    .to(".title", {zIndex: 1, scale: 1.25, ease: "ease.in"})
+  `;
 </script>
 
 <section>
@@ -52,7 +101,7 @@ import { slide } from 'svelte/transition';
   <div class="demo__container" id="simpleDemo4">
     <h2 class="demo__title">
       Demo Multiple items:
-      <code>gsap.to</code>
+      <code>gsap.timeline</code>
     </h2>
     <div class="show-code-container">
       <label for="show-code-4">Show Code</label>
@@ -68,23 +117,34 @@ import { slide } from 'svelte/transition';
           Reset &ldca;
         </button>
       {/if}
-    <div class="box red class1"></div>
-    <div class="box yellow class2"></div>
-    <div class="box blue class3"></div>
+      <div class="window">
+    <div class="star step-1">NEW</div>
+    <div class="title step-2">A Strong Title</div>
+    <div class="text step-3">Now available at a store or supermarket near you 👍</div>
+    <div class="slide"></div>
+        <div class="sparkles spark1"></div>
+        <div class="sparkles spark2"></div>
+        <div class="sparkles spark3"></div>
+        <div class="sparkles spark4"></div>
+        <div class="sparkles spark5"></div>
+        <div class="sparkles spark6"></div>
+        <div class="sparkles spark7"></div>
+        <div class="sparkles spark8"></div>
+    </div>
     </div>
     {#if showCode4}
       <div class="codeblock" transition:slide="{{ y: 200, duration: 2000 }}">
         HTML
-        <pre class="language-html">
-          <!-- <code class="language-javascript"> -->
+        <pre class="language-markup">
+          <code class="language-markup">
           {codeSnippetHTML}
-          <!-- </code> -->
+          </code>
         </pre>
-        javaScript
-        <pre class="language-js">
-          <!-- <code class="language-javascript"> -->
+        JavaScript
+        <pre class="language-javascript">
+          <code class="language-javascript">
           {codeSnippetJS}
-          <!-- </code> -->
+          </code>
         </pre>
       </div>
     {/if}
@@ -115,35 +175,99 @@ import { slide } from 'svelte/transition';
     margin: 0 0 6px;
     z-index: 10;
   }
-.box {
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
-    border: 2px solid white;
-  }
-  .box.red {
-    background-color: red;
+
+.window{
+    min-height: 300px;
+    background-image: url(./../karl-kohler-lPhqnp4uw5c-unsplash.jpg);
+    background-size: cover;
+    background-position: 50% 16%;
+    padding: 10px;
     position: relative;
-    z-index: 0;
-  }
-  .box.yellow {
+    overflow: hidden;
+}
+
+  .star{
     background-color: yellow;
     position: relative;
     z-index: 0;
-  }
-  .box.blue {
-    background-color: blue;
-    position: relative;
-    z-index: 0;
+    color: rgb(204, 63, 8);
+    height: 80px;
+    width: 80px;
+    fill: yellow;
+    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+    text-align: center;
+    line-height: 5rem;
+    font-weight: bold;
+position: relative;
+    transform: translate(0 -200px);
+    opacity: 0;
   }
 
-  code {
+  .title{
+      text-transform: uppercase;
+      font-size: 3rem;
+      text-shadow: 2px 2px 13px #8686e05d;
+      text-underline-position: below;
+      text-underline-offset: 12px;
+      text-decoration: underline;
+      text-decoration-color: rgba(134, 134, 224, 0.363);
+      opacity: 0;
+      position: relative;
+transform: translate(-500px);
+      text-align: center;
+  }
+
+  .text{
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      transform: translate(0, 200px);
+  }
+
+  .slide{
+        opacity: 0;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+  }
+
+  .sparkles{
+    width: 12px;
+    height: 12px;
+    background: darkkhaki;
+    filter: drop-shadow(0px 0px 5px);
+    border-radius: 50px 10%;
+    opacity: 0;
+    position: absolute;
+
+  }
+  .sparkles:nth-child(odd){
+      transform: rotate(65deg);
+  }
+
+  .sparkles:after{
+  content: '';
+width: 12px;
+height: 12px;
+background: darkkhaki;
+filter: drop-shadow(0px 0px 0px);
+border-radius: 50px 10%;
+
+position: absolute;
+transform: rotate(85deg);
+  }
+  /* code {
     font-family: monospace;
     color: #8ac640;
   }
   pre ~ code {
     color: white;
-  }
+  } */
 
   button.button {
     border-radius: 10px;
