@@ -122,7 +122,7 @@ import { slide } from 'svelte/transition';
           {codeSnippetHTML}
           <!-- </code> -->
         </pre>
-        javaScript
+        JavaScript
         <pre class="language-js">
           <!-- <code class="language-javascript"> -->
           {codeSnippetJS}
@@ -165,13 +165,6 @@ import { slide } from 'svelte/transition';
 
   }
 
-  code {
-    font-family: monospace;
-    color: #8ac640;
-  }
-  pre ~ code {
-    color: white;
-  }
 
   button.button {
     border-radius: 10px;
