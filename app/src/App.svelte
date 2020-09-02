@@ -1,16 +1,16 @@
 <script>
-  import Footer from "./Footer.svelte";
-  import Demo1 from "./Demo1.svelte";
-  import Demo2 from "./Demo2.svelte";
-  import Demo3 from "./Demo3.svelte";
+//   import Footer from "./Footer.svelte";
+//   import Demo1 from "./Demo1.svelte";
+//   import Demo2 from "./Demo2.svelte";
+//   import Demo3 from "./Demo3.svelte";
   import Demo4 from "./Demo4.svelte";
-  export let title;
+//   export let title;
 
   // console.log(container);
 </script>
 
 <div class="container">
-  <header>
+  <!-- <header>
     <h1>{title}</h1>
     <img
       src="/logo-man.svg"
@@ -18,23 +18,23 @@
       alt="Logo GSAP - superhero"
       height="100%"
     />
-  </header>
+  </header> -->
   <main>
-    <h2 id="Whatis">What's Greensock and what is GSAP?</h2>
+    <!-- <h2 id="Whatis">What's Greensock and what is GSAP?</h2>
     <p>
       Greensock is a JavaScript platform for animating DOM elements, and gives
       the developer a lot more control over the animations.
       <acronym title="Greensock Animation Platform">GSAP</acronym>
       is the name of the platform, which stands for <strong>G</strong>reen <strong>S</strong>ock <strong>A</strong>nimation <strong>P</strong>latform
-    </p>
+    </p> -->
 
-    <Demo1 />
+    <!-- <Demo1 />
     <Demo2 />
-    <Demo3 />
+    <Demo3 /> -->
     <Demo4 />
   </main>
-  <aside>
-    <ul class="content">
+  <!-- <aside>
+     <ul class="content">
       <li class="link">
         <a href="#Whatis">What's Greensock and what is GSAP?</a>
       </li>
@@ -46,7 +46,7 @@
       </li>
     </ul>
   </aside>
-  <Footer />
+  <Footer /> -->
 
 </div>
 
@@ -65,7 +65,7 @@
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
-    grid-row-end: 2;
+    grid-row-end: 3;
     height: auto;
   }
 

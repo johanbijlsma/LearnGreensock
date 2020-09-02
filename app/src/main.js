@@ -2,11 +2,11 @@ import App from "./App.svelte";
 
 // import { gsap } from "gsap";
 
-const app = new App({
-  target: document.body,
+const svelte4 = new App({
+  target: document.querySelector("svelte4"),
   props: {
     title: `Learning Greensock's GSAP`,
   },
 });
 
-export default app;
+export default svelte4;

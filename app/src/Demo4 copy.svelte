@@ -1,7 +1,7 @@
 <script>
 import { slide } from 'svelte/transition';
   export let example4Started = false;
-//   export let showCode4 = false;
+  export let showCode4 = false;
 
   var random = gsap.utils.random(0, 100, true);
 
@@ -39,71 +39,67 @@ import { slide } from 'svelte/transition';
     example4Started = false;
   }
 
-//   export let codeSnippetHTML = `
-// <div class="window">
-//     <div class="star step-1">NEW</div>
-//     <div class="title step-2">A Strong Title</div>
-//     <div class="text step-3">Now available at a store or supermarket near you 👍</div>
-//     <div class="slide"></div>
-//         <div class="sparkles spark1"></div>
-//         <div class="sparkles spark2"></div>
-//         <div class="sparkles spark3"></div>
-//         <div class="sparkles spark4"></div>
-//         <div class="sparkles spark5"></div>
-//         <div class="sparkles spark6"></div>
-//         <div class="sparkles spark7"></div>
-//         <div class="sparkles spark8"></div>
-//     </div>
-// </div>
-//     `;
+  export let codeSnippetHTML = `
+<div class="window">
+    <div class="star step-1">NEW</div>
+    <div class="title step-2">A Strong Title</div>
+    <div class="text step-3">Now available at a store or supermarket near you 👍</div>
+    <div class="slide"></div>
+        <div class="sparkles spark1"></div>
+        <div class="sparkles spark2"></div>
+        <div class="sparkles spark3"></div>
+        <div class="sparkles spark4"></div>
+        <div class="sparkles spark5"></div>
+        <div class="sparkles spark6"></div>
+        <div class="sparkles spark7"></div>
+        <div class="sparkles spark8"></div>
+    </div>
+</div>
+    `;
 
-//   export let codeSnippetJS = `
+  export let codeSnippetJS = `
 
-// var random = gsap.utils.random(0, 100, true);
+var random = gsap.utils.random(0, 100, true);
 
-// var tl = gsap.timeline({ defaults: {duration: 0.5, opacity: 1, ease: "elastic"}}  );
-// function startAnimation(event) {
+var tl = gsap.timeline({ defaults: {duration: 0.5, opacity: 1, ease: "elastic"}}  );
+function startAnimation(event) {
 
-// tl.paused(false)
-//     tl.to(".title", { scale: 1, opacity: 1, x: 10, duration: 1.5, ease: "elastic"})
-//     .to(".star", {y: 0, ease: "power4.in"})
-//     .to(".text", {y: 0, opacity: 0.3 ,duration: 1.5, ease: "power4.in"})
-//     .to(".text", {opacity: 1, ease: "ease.in"})
-//     .to(".star", {duration: 0.2, rotation: "-18", scale: "1.2", zIndex: 1,  ease: "power4.in"})
-//     .to(".slide", {duration: 0.8, opacity: 1, backgroundColor: "#8686e05d", ease: "ease"})
-//     .to(".spark1", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark2", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark3", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark4", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark5", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark6", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark7", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".spark8", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
-//     .to(".sparkles", {opacity: 1, scale: 1, repeat: -1, stagger: {
-//         amount: 1.8,
-//         grid: "auto",
-//         from: "random",
-//     },  ease: "back"})
-//     .to(".slide", {background: "#8686e05d", ease: "ease"})
-//     .to(".title", {zIndex: 1, scale: 1.25, ease: "ease.in"})
-//   `;
+tl.paused(false)
+    tl.to(".title", { scale: 1, opacity: 1, x: 10, duration: 1.5, ease: "elastic"})
+    .to(".star", {y: 0, ease: "power4.in"})
+    .to(".text", {y: 0, opacity: 0.3 ,duration: 1.5, ease: "power4.in"})
+    .to(".text", {opacity: 1, ease: "ease.in"})
+    .to(".star", {duration: 0.2, rotation: "-18", scale: "1.2", zIndex: 1,  ease: "power4.in"})
+    .to(".slide", {duration: 0.8, opacity: 1, backgroundColor: "#8686e05d", ease: "ease"})
+    .to(".spark1", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark2", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark3", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark4", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark5", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark6", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark7", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".spark8", {duration: 0.2, opacity: 0, left: random()+'%', top: random()+'%'})
+    .to(".sparkles", {opacity: 1, scale: 1, repeat: -1, stagger: {
+        amount: 1.8,
+        grid: "auto",
+        from: "random",
+    },  ease: "back"})
+    .to(".slide", {background: "#8686e05d", ease: "ease"})
+    .to(".title", {zIndex: 1, scale: 1.25, ease: "ease.in"})
+  `;
 </script>
 
 <section>
-  <!-- <h2>Great, But how to make a more complex animation?</h2>
-  <p>
-    By utilizing
-    <code>gsap.timeline</code>!
-  </p> -->
+
   <div class="demo__container" id="simpleDemo4">
-    <!-- <h2 class="demo__title">
+    <h2 class="demo__title">
       Demo Multiple items:
       <code>gsap.timeline</code>
-    </h2> -->
-    <!-- <div class="show-code-container">
+    </h2>
+    <div class="show-code-container">
       <label for="show-code-4">Show Code</label>
       <input id="show-code-4" type="checkbox" bind:checked={showCode4} />
-    </div> -->
+    </div>
     <div class="demoblock">
       {#if !example4Started}
         <button class="button start" on:click={startAnimation}>
@@ -129,7 +125,7 @@ import { slide } from 'svelte/transition';
         <div class="sparkles spark8"></div>
     </div>
     </div>
-    <!-- {#if showCode4}
+    {#if showCode4}
       <div class="codeblock" transition:slide="{{ y: 200, duration: 2000 }}">
         HTML
         <pre class="language-markup">
@@ -144,7 +140,7 @@ import { slide } from 'svelte/transition';
           </code>
         </pre>
       </div>
-    {/if} -->
+    {/if}
   </div>
 </section>
 
