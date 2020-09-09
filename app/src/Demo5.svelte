@@ -1,7 +1,6 @@
 <script>
 import { slide } from 'svelte/transition';
-	import { onMount } from 'svelte';
-  export let showCode5 = false;
+import { onMount } from 'svelte';
   let weather = 'sunny';
 
   function sunny(event) {
@@ -42,8 +41,6 @@ import { slide } from 'svelte/transition';
       scale: 1,
       ease: "back",
       translateX: 0,
-
-
     });
   }
   function rainy(event) {
@@ -54,8 +51,6 @@ import { slide } from 'svelte/transition';
       scale: 1,
       ease: "back",
       translateY: 0,
-
-
     });
   }
 
@@ -121,7 +116,6 @@ import { slide } from 'svelte/transition';
       ease: "elastic",
       repeat:2
     });
-
   }
 
     function stormy2(event){
@@ -163,7 +157,6 @@ import { slide } from 'svelte/transition';
       cloudy(),
       cloud(),
       variation()
-
     }
     function loadRainy(event) {
         changeBg(),
@@ -185,33 +178,7 @@ import { slide } from 'svelte/transition';
         variation(),
         cloud(),
         stormy2()
-
   }
-
-
-  export let codeSnippetHTML = `
-   <div class="circles">
-        ...
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        ...
-    </div>
-    `;
-
-  export let codeSnippetJS = ` gsap.to(".circle", {
-      duration: 0.45,
-      scale: 0.75,
-      backgroundColor: "tomato",
-      yoyo: true,
-      repeat: 3,
-      ease: "elastic.in",
-      stagger: {
-        amount: 1.5,
-        grid: "auto",
-        from: "random",
-      },
-    });`;
 
 	onMount(() => {
     sunny()
@@ -223,22 +190,13 @@ import { slide } from 'svelte/transition';
 <section>
 
   <h2>GSAP SVG animations</h2>
-  <!-- <p>
-    Using
-    <code>gsap.to</code>
-    , with multiple items, and the
-    <code>stutter</code>
-    attribute
-  </p> -->
+  <p>Here's an example with multiple GSAP animations.
+
   <div class="demo__container" id="simpleDemo5">
     <h2 class="demo__title">
 Weather Cards
     </h2>
 
-    <div class="show-code-container">
-      <label for="show-code-check3">Show Code</label>
-      <input id="show-code-check3" type="checkbox" bind:checked={showCode5} />
-    </div>
     <div class="demoblock">
     <div class="weather-selector">
    <h2> Set Weather:</h2>
@@ -260,15 +218,6 @@ Weather Cards
     <label for="stormy">Stormy</label></div>
    </div>
         </div>
-      <!-- {#if !example5Started}
-        <button class="button start" on:click={startAnimation}>
-          Start &RightAngleBracket;
-        </button>
-      {:else}
-        <button class="button reset" on:click={resetAnimation}>
-          Reset &ldca;
-        </button>
-      {/if} -->
 
 <div class="card {weather}">
     <div class="card__title">{weather}
@@ -500,23 +449,7 @@ Weather Cards
 
 
 </div>
-    {#if showCode5}
-      <div class="codeblock" transition:slide="{{ y: 200, duration: 2000 }}">
-        HTML
-        <pre class="language-html">
-          <!-- <code class="language-javascript"> -->
-          {codeSnippetHTML}
-          <!-- </code> -->
-        </pre>
-        JavaScript
-        <pre class="language-js">
-          <!-- <code class="language-javascript"> -->
-          {codeSnippetJS}
-          <!-- </code> -->
-        </pre>
-      </div>
-    {/if}
-  </div>
+
 </section>
 
 <style>
@@ -538,60 +471,6 @@ Weather Cards
     margin: 0 0 6px;
   }
 
-  .circle {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 2px solid white;
-    background: #8ac640;
-    margin: 5px;
-  }
-  .circles {
-    display: flex;
-    padding: 30px 23%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-  }
-
-
-  button.button {
-    border-radius: 10px;
-    border: 1px solid darkblue;
-    padding: 8px 32px;
-    box-shadow: inset 0 0 0 transparent;
-  }
-  .button.start:hover {
-    box-shadow: inset 0 -6px 1px #8ac640;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-    color: #8ac640;
-  }
-
-  .button.reset {
-    box-shadow: inset 0 -40px 1px rgb(204, 63, 8);
-    transition: all 200ms ease-in-out;
-    color: #fff;
-  }
-
-  .button.reset:hover {
-    box-shadow: inset 0 -6px 1px #8ac640;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-    color: #8ac640;
-  }
-
-  .show-code-container {
-    position: absolute;
-    top: 21px;
-    right: 0;
-    display: inline-block;
-    min-width: 120px;
-  }
-
-  .show-code-container label {
-    display: inline-block;
-  }
 
   .weather-selector-container{
       width: clamp(100%, 50vw, 600px);
@@ -609,7 +488,12 @@ Weather Cards
   .weather-option label{
     height: 100%;
     padding: 20px 5px;
+    border: 1px dashed transparent;
+  }
 
+  .weather-option label:hover, .weather-option label:focus{
+      cursor: pointer;
+      border: 1px dashed tomato;
   }
   input[type="radio"]{
       position: absolute;
