@@ -1,34 +1,193 @@
 <script>
 import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
-  export let example5Started = false;
   export let showCode5 = false;
   let weather = 'sunny';
 
-  function startAnimation(event) {
+  function sunny(event) {
     gsap.to("svg", {
       duration: 0.75,
       scale: 1,
       ease: "power4",
-      rotate: 360
+      rotate: 360,
     });
-    example5Started = true;
   }
-  function resetAnimation(event) {
 
-    gsap.to(".circle", {
-        backgroundColor: "#8ac640",
-      duration: 1,
-      x: 0,
-      scale: 1,
-      repeat: 0,
-      yoyo: false,
-      stagger: {
-        amount: 0,
-      },
+  function variation(event) {
+    gsap.to("svg", {
+        x:"random(-15, 15, 5)",
+      duration: 2.75,
+      delay: 2,
+        ease: "back.inOut(2)",
+      repeat: -1,
+      yoyo: true
     });
-    example5Started = false;
   }
+  function variation2(event) {
+    gsap.to("svg", {
+        scale: 1.3,
+      duration: 2.75,
+      delay: 2,
+        ease: "back.inOut(2)",
+      repeat: -1,
+      yoyo: true
+    });
+  }
+
+  function cloudy(event) {
+    gsap.fromTo("svg", {
+        translateX: -100,
+    }, {
+      duration: 0.75,
+      scale: 1,
+      ease: "back",
+      translateX: 0,
+
+
+    });
+  }
+  function rainy(event) {
+    gsap.fromTo("svg", {
+        translateY: -100,
+    }, {
+      duration: 0.75,
+      scale: 1,
+      ease: "back",
+      translateY: 0,
+
+
+    });
+  }
+
+    function rainy2(event){
+       gsap.fromTo(".am-weather-rain-1", {
+        translateY: 0, opacity: 1,
+    }, {translateY: 30,
+        opacity: 0,
+    duration: 1.4,
+    delay: 0.5,
+    repeat: -1,
+    ease: "power1"});
+    }
+  function rainy3(event){
+       gsap.fromTo(".am-weather-rain-2", {
+        translateY: 0, opacity: 1,
+    }, {translateY: 30,
+        opacity: 0,
+    duration: 1.4,
+    delay: 0.7,
+    repeat: -1,
+    ease: "power1"});
+    }
+  function snowy(event) {
+    gsap.fromTo("svg", {
+        translateY: 100,
+    }, {
+      duration: 0.75,
+      scale: 1,
+      ease: "back",
+      translateY: 0,
+
+    });
+
+  }
+  function snowy2(event){
+       gsap.fromTo(".am-weather-snow-1", {
+        translateY: 0, opacity: 1,
+    }, {translateY: 30,
+        opacity: 0,
+    duration: 1.4,
+    delay: 0.5,
+    repeat: -1,
+    ease: "power1"});
+    }
+  function snowy3(event){
+       gsap.fromTo(".am-weather-snow-2", {
+        translateY: 0, opacity: 1,
+    }, {translateY: 30,
+        opacity: 0,
+    duration: 1.4,
+    delay: 0.7,
+    repeat: -1,
+    ease: "power1"});
+    }
+
+  function stormy(event) {
+    gsap.fromTo("svg", {
+        scale: 0,
+    }, {
+      duration: .75,
+      scale: 1,
+      ease: "elastic",
+      repeat:2
+    });
+
+  }
+
+    function stormy2(event){
+       gsap.fromTo(".am-weather-stroke", {
+        scale: 1,
+    }, {scale: 1.4,
+    duration: 0.8,
+    delay: 4,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.6,
+    ease: "rough"});
+    }
+  function cloud(event){
+       gsap.to(".am-weather-cloud-1", {
+        x:"random(-20, 20, 5)",
+    duration: 1.4,
+    delay: 0.7,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine"});
+    }
+  function changeBg(event) {
+    gsap.fromTo(".card", {scale: 0.95, backgroundImage: 'radial-gradient(whitesmoke, lightblue)'}, {
+      scale: 1,
+      duration: 0.5,
+      backgroundImage: '',
+      ease: "elastic",
+    });
+  }
+
+  function loadSunny(event) {
+      changeBg(),
+      sunny(),
+      variation2()
+  }
+  function loadCloudy(event) {
+      changeBg(),
+      cloudy(),
+      cloud(),
+      variation()
+
+    }
+    function loadRainy(event) {
+        changeBg(),
+        rainy(),
+        rainy2(),
+        rainy3(),
+        variation()
+    }
+    function loadSnowy(event) {
+        changeBg(),
+        snowy(),
+        snowy2(),
+        snowy3(),
+        variation()
+    }
+    function loadStormy(event) {
+        changeBg(),
+        stormy(),
+        variation(),
+        cloud(),
+        stormy2()
+
+  }
+
 
   export let codeSnippetHTML = `
    <div class="circles">
@@ -55,7 +214,7 @@ import { slide } from 'svelte/transition';
     });`;
 
 	onMount(() => {
-    startAnimation()
+    sunny()
 	});
 
 
@@ -85,19 +244,19 @@ Weather Cards
    <h2> Set Weather:</h2>
 <div class="weather-selector-container">
 
-    <div class="weather-option"><input type="radio" id="sunny" name="weatherType" bind:group={weather} value={'sunny'} on:change={startAnimation}>
+    <div class="weather-option"><input type="radio" id="sunny" name="weatherType" bind:group={weather} value={'sunny'} on:change={loadSunny}>
     <label for="sunny">Sunny</label></div>
 
-    <div class="weather-option"><input type="radio" id="cloudy" name="weatherType" bind:group={weather} value={'cloudy'} on:change={startAnimation}>
+    <div class="weather-option"><input type="radio" id="cloudy" name="weatherType" bind:group={weather} value={'cloudy'} on:change={loadCloudy}>
     <label for="cloudy">Cloudy</label></div>
 
-    <div class="weather-option"><input type="radio" id="raining" name="weatherType" bind:group={weather} value={'raining'} on:change={startAnimation}>
+    <div class="weather-option"><input type="radio" id="raining" name="weatherType" bind:group={weather} value={'raining'} on:change={loadRainy}>
     <label for="raining">Raining</label></div>
 
-    <div class="weather-option"><input type="radio" id="snowing" name="weatherType" bind:group={weather} value={'snowing'} on:change={startAnimation}>
+    <div class="weather-option"><input type="radio" id="snowing" name="weatherType" bind:group={weather} value={'snowing'} on:change={loadSnowy}>
     <label for="snowing">Snowing</label></div>
 
-    <div class="weather-option"><input type="radio" id="stormy" name="weatherType" bind:group={weather} value={'stormy'} on:change={startAnimation}>
+    <div class="weather-option"><input type="radio" id="stormy" name="weatherType" bind:group={weather} value={'stormy'} on:change={loadStormy}>
     <label for="stormy">Stormy</label></div>
    </div>
         </div>
@@ -361,6 +520,9 @@ Weather Cards
 </section>
 
 <style>
+    section{
+        width: 80%;
+    }
   .demo__container {
     margin: 10px auto;
     width: 80%;
@@ -470,6 +632,7 @@ Weather Cards
     border-radius: 10px;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.6), 0px 0px 5px rgba(0,0,0,0.6);
     padding: 50px 0 0 0;
+    overflow: hidden;
 }
 .card__title{
     text-align: center;
@@ -483,6 +646,7 @@ Weather Cards
 } */
 .card svg{
     transform: scale(0);
+
 }
 
 .card.clear{

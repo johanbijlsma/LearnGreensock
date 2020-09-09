@@ -59,7 +59,7 @@
   }
   main {
     padding: 1em;
-    max-width: 240px;
+    min-width: 240px;
     margin: 0 auto;
     background-color: lightslategrey;
     color: whitesmoke;
@@ -106,7 +106,7 @@
 
   @media (min-width: 640px) {
     main {
-      max-width: none;
+      width: clamp(600px, 80vw, 1400px);
     }
   }
 
