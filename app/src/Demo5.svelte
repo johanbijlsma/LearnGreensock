@@ -189,17 +189,17 @@ import { onMount } from 'svelte';
 
 <section>
 
-  <h2>GSAP SVG animations</h2>
-  <p>Here's an example with multiple GSAP animations.
+  <!-- <h2>GSAP SVG animations</h2>
+  <p>Here's an example with multiple GSAP animations. -->
 
   <div class="demo__container" id="simpleDemo5">
-    <h2 class="demo__title">
+    <!-- <h2 class="demo__title">
 Weather Cards
-    </h2>
+    </h2> -->
 
     <div class="demoblock">
     <div class="weather-selector">
-   <h2> Set Weather:</h2>
+   <!-- <h2> Set Weather:</h2> -->
 <div class="weather-selector-container">
 
     <div class="weather-option"><input type="radio" id="sunny" name="weatherType" bind:group={weather} value={'sunny'} on:change={loadSunny}>
@@ -453,9 +453,9 @@ Weather Cards
 </section>
 
 <style>
-    section{
+    /* section{
         width: 80%;
-    }
+    } */
   .demo__container {
     margin: 10px auto;
     width: 80%;
@@ -473,7 +473,7 @@ Weather Cards
 
 
   .weather-selector-container{
-      width: clamp(100%, 50vw, 600px);
+      width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
